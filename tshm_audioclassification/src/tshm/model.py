@@ -7,7 +7,7 @@ import torch.nn.init as init
 from typing import Optional
 
 # -------------------------
-# TSHMBlockSimple (unchanged algorithmically; trimmed for clarity)
+# TSHMBlock
 # -------------------------
 class TSHMBlock(nn.Module):
     def __init__(
