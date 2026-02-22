@@ -483,24 +483,24 @@ def main():
         acc_stream = correct / total if total > 0 else 0.0
         print(f"[streaming-eval] streaming test accuracy: {acc_stream:.4f}")
 
-        model.eval()
-        examples = 8
-        printed = 0
-        with torch.no_grad():
-            for x, y in test_loader:
-                x = x.to(device)
-                logits = model(x)
-                preds = logits.argmax(dim=1).cpu().numpy()
-                y_np = y.numpy()
-                for i in range(x.size(0)):
-                    pred_label = classes_list[preds[i]] if 0 <= preds[i] < len(classes_list) else str(preds[i])
-                    true_label = classes_list[y_np[i]] if 0 <= y_np[i] < len(classes_list) else str(y_np[i])
-                    print(f"Example {printed+1}: pred='{pred_label}'  true='{true_label}'")
-                    printed += 1
-                    if printed >= examples:
-                        break
+    model.eval()
+    examples = 8
+    printed = 0
+    with torch.no_grad():
+        for x, y in test_loader:
+            x = x.to(device)
+            logits = model(x)
+            preds = logits.argmax(dim=1).cpu().numpy()
+            y_np = y.numpy()
+            for i in range(x.size(0)):
+                pred_label = classes_list[preds[i]] if 0 <= preds[i] < len(classes_list) else str(preds[i])
+                true_label = classes_list[y_np[i]] if 0 <= y_np[i] < len(classes_list) else str(y_np[i])
+                print(f"Example {printed+1}: pred='{pred_label}'  true='{true_label}'")
+                printed += 1
                 if printed >= examples:
                     break
+            if printed >= examples:
+                break
 
 
 if __name__ == "__main__":
