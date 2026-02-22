@@ -9,7 +9,7 @@ from typing import Optional
 # -------------------------
 # TSHMBlockSimple (unchanged algorithmically; trimmed for clarity)
 # -------------------------
-class TSHMBlockSimple(nn.Module):
+class TSHMBlock(nn.Module):
     def __init__(
         self,
         d_model,
@@ -225,7 +225,7 @@ class GatedSkip(nn.Module):
         return x_curr_t * g + x_prev_t * (1.0 - g)
 
 
-class TSHMTransformerStack(nn.Module):
+class TSHMStack(nn.Module):
     def __init__(self, num_layers, d_model, tshm_kwargs=None, between_kwargs=None, use_gated_skip=False, causal=False):
         super().__init__()
         tshm_kwargs = dict(tshm_kwargs or {})
@@ -236,7 +236,7 @@ class TSHMTransformerStack(nn.Module):
         self.d_model = int(d_model)
         self.causal = bool(causal)
         self.use_gated_skip = bool(use_gated_skip)
-        self.layers = nn.ModuleList([TSHMBlockSimple(d_model=d_model, **tshm_kwargs) for _ in range(self.num_layers)])
+        self.layers = nn.ModuleList([TSHMBlock(d_model=d_model, **tshm_kwargs) for _ in range(self.num_layers)])
         between_defaults = dict(dropout=between_kwargs.get("dropout", 0.0), activation=between_kwargs.get("activation", "gelu"), use_layernorm=between_kwargs.get("use_layernorm", True), causal=between_kwargs.get("causal", False))
         self.betweens = nn.ModuleList([BetweenBlock(d_model=d_model, **between_defaults) for _ in range(max(0, self.num_layers - 1))])
         if self.use_gated_skip:
@@ -318,7 +318,7 @@ class TSHMEncoder(nn.Module):
             self.pos = None
         tshm_kwargs = dict(r=r, K=K, ff_hidden=ff_hidden, gate_kernel=3, per_channel_gate=False, causal=causal)
         between_kwargs = dict(dropout=0.0, activation="gelu", use_layernorm=True, causal=causal)
-        self.stack = TSHMTransformerStack(num_layers=n_layers, d_model=d_model, tshm_kwargs=tshm_kwargs, between_kwargs=between_kwargs, use_gated_skip=False, causal=causal)
+        self.stack = TSHMStack(num_layers=n_layers, d_model=d_model, tshm_kwargs=tshm_kwargs, between_kwargs=between_kwargs, use_gated_skip=False, causal=causal)
         self.out_ln = nn.LayerNorm(d_model)
 
     def forward(self, x):
