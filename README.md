@@ -42,7 +42,7 @@ If using pre-convolution, use --causal so conv is applied causally both offline 
 
 Run in model.eval() for evaluation.
 
-### 2) `requirements.txt`
+2) `requirements.txt`
 ```text
 numpy
 torch>=1.11.0
