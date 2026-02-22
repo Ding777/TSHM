@@ -370,7 +370,8 @@ class TSHMClassifier(nn.Module):
         self.use_conv = bool(use_conv)
         self.use_residual = bool(use_residual)
         self.residual_gated = bool(residual_gated)
-        self.pooling = pooling.lower()
+        #self.pooling = pooling.lower()
+        self.pooling = "max"
         assert self.pooling in ("max", "mean"), "pooling must be 'max' or 'mean'"
         self.causal = bool(causal)
 
