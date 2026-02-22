@@ -1,17 +1,4 @@
-Repo layout (create these files)
-tshm-audio-classification/
-├── README.md
-├── LICENSE
-├── requirements.txt
-├── setup.sh
-├── .gitignore
-└── src/
-    └── tshm/
-        ├── __init__.py
-        ├── models.py
-        └── data.py
-    └── train.py
-1) README.md
+
 # TSHM Audio Classification
 
 Project layout for TSHM-based audio classification with streaming (causal) support.
