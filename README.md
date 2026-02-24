@@ -6,7 +6,7 @@
 
 ## TL;DR
 
-This repository implements **Temporal–Spectral Hamiltonian Mixers (TSHM)** for long-sequence modeling. It contains code for forecasting and for audio classification with optional streaming (causal) inference. Use the `src/train.py` or `tshm_transformer70.py` entrypoints (examples below) to train and evaluate models on your data.
+This repository implements **Temporal–Spectral Hamiltonian Mixers (TSHM)** for long-sequence modeling. It contains code for forecasting and for audio classification with optional streaming (causal) inference. 
 
 ---
 
