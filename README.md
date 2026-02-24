@@ -1,6 +1,6 @@
 # Temporal–Spectral Hamiltonian Mixers for Efficient LongSequence Modeling
 
-A concise, well-formatted README for GitHub. Below you’ll find a short polished overview, clear “How to run” instructions, and — per your request — the original text you provided included verbatim (unchanged).
+
 
 ---
 
