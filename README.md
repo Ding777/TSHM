@@ -60,7 +60,7 @@ python src/train.py --data_dir ./speech_commands --mode mfcc --causal --streamin
 
 ```bash
 # Basic train with an ETT CSV (hourly)
-python3 tshm_transformer70.py \
+python3 tshm_forecaste.py \
   --data_dir /path/to/ETTh1.csv \
   --model tshm \
   --epochs 15 \
@@ -72,7 +72,7 @@ python3 tshm_transformer70.py \
   --pred_len 168
 
 # ETT-minute CSV
-python3 tshm_transformer70.py \
+python3 tshm_forecaste.py \
   --data_dir /path/to/ETTm1.csv \
   --model tshm \
   --epochs 8 \
@@ -83,7 +83,7 @@ python3 tshm_transformer70.py \
   --pred_len 48
 
 # Single arbitrary CSV (ForecastCSV behavior — 80/10/10 split)
-python3 tshm_transformer70.py \
+python3 tshm_forecaste.py \
   --data_dir /path/to/your_dataset.csv \
   --model tshm \
   --dataset_class ForecastCSV \
@@ -93,7 +93,7 @@ python3 tshm_transformer70.py \
   --pred_len 48
 
 # Custom dataset folder (df_x.csv / df_y.csv or partitioned train/validation/test)
-python3 tshm_transformer70.py \
+python3 tshm_forecaste.py \
   --data_dir /path/to/dataset_folder \
   --model tshm \
   --dataset_class Custom \
@@ -104,7 +104,7 @@ python3 tshm_transformer70.py \
 To explicitly set device:
 
 ```bash
-python3 tshm_transformer70.py ... --device cuda:0
+python3 tshm_forecaste.py ... --device cuda:0
 ```
 
 ---
