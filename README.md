@@ -54,14 +54,14 @@ tqdm
 
 
 
-#TSHM Forecasting
+# TSHM Forecasting
 
 
-## Overview
+##  Overview
 
 This repository contains an implementation of a time-series forecaster (TSHM) with support for multiple dataset formats (ETT, M4, single CSV, partitioned folders, ForecastCSV-style sequences) and both batch and streaming (causal) modes.
 
-### Key features
+###  Key features
 
 Train/evaluate a TSHMForecaster model (configurable d_model, n_layers, r, K, etc.).
 
