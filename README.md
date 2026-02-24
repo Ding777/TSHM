@@ -124,7 +124,7 @@ python3 tshm_forecaste.py ... --device cuda:0
   * `src/train.py` — training/eval driver for audio classification
   * `src/tshm/models.py` — TSHMBlock, TSHMStack, TSHMEncoder, TSHMClassifier (streaming)
   * `src/tshm/data.py` — dataset loaders and helpers
-* `tshm_transformer70.py` — forecasting runner (ETT / M4 / ForecastCSV / Custom support)
+* `tshm_forecaste.py` — forecasting runner (ETT / M4 / ForecastCSV / Custom support)
 * `requirements.txt` — recommended packages
 
 ---
