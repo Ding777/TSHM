@@ -53,6 +53,9 @@ torchaudio>=0.11.0
 tqdm
 
 
+# Temporal–Spectral Hamiltonian Mixers for Efficient LongSequence Modeling
+
+
 
 
 
